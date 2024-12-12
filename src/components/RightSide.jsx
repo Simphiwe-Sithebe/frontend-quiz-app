@@ -1,15 +1,14 @@
 import React from "react";
 import "../css/styles.css";
-import {Link} from "react-router";
 
-const subjects = ['HTML', 'CSS', 'Javascript','Accessibilty']
+const subjects = ['HTML', 'CSS', 'JavaScript','Accessibility']
 
-function RightSide() {
+function RightSide(props) {
     return(
         <div className="right-section ">
             <ul>
                 {subjects.map((subject, index) => (
-                    <li key={index}><Link to={`/quiz/${subject.toLowerCase()}`}>{subject}</Link></li>
+                    <li key={index}><button onClick={()=>{props.onViewingChange(subject)}}>{subject}</button></li>
                 ))}
             </ul>
         </div>

@@ -3,11 +3,11 @@ import "../css/styles.css";
 import LeftSide from './LeftSide'
 import RightSide from './RightSide'
 
-function HomePage(){
+function HomePage(props){
     return(
         <div className="home-container">
             <LeftSide />
-            <RightSide />
+            <RightSide {...props} />
        </div>
     );
     

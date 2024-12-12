@@ -1,18 +1,19 @@
-import { Routes, Route } from "react-router"
-import Quiz from "./components/Quiz"
-
-import './App.css'
-import HomePage from './components/HomePage'
+import { useState } from "react";
+import "./App.css";
+import HomePage from "./components/HomePage";
+import QuizList from "./components/QuizList";
 
 function App() {
-  //const [count, setCount] = useState(0)
+  const [viewing, setViewing] = useState("home");
 
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/quiz/:id" element={<Quiz/>} />
-    </Routes>
-  )
+  if (viewing === "home") {
+    return <HomePage onViewingChange={(subject)=>{
+      console.log(subject);
+      setViewing(subject);
+    }} />;
+  }
+
+  return <QuizList viewing={viewing} />;
 }
 
-export default App
+export default App;
